@@ -1,47 +1,65 @@
-import my_functions
 import json
 from datetime import datetime
-
-
+from my_function import build_person, build_experiment
 
 if __name__ == "__main__":
+    print()
+    print("Welcome to the experiment builder!")
+    print("Please enter the following information about the experiment")
+    print()
+    experiment_name = input("Enter the experiment name: ")
+    while True:
+        check = input("Do you want to use the current date? (y/n): ")
+        if check == "y":
+            experiment_date = datetime.now().strftime("%d-%m-%Y")
+            break
+        elif check == "n":
+            experiment_date = input("Enter the date(dd-mm-yyyy): ")
+            break
+        else:
+            print("Please enter a valid input!")
 
-   # Datum fixieren
-    datum =  datetime.now().strftime("%d-%m-%Y")
+    while True:
+        check = input("Do you want to enter new supervisor information? (y/n): ")
 
-    # Experimentenname
-    name = input("Experimentenname:")
+        if check == "y":
+            print()
+            print("Please enter the following information about the experiment supervisor!")
+            supervisor = build_person(
+                input("Enter the supervisor's first name: "),
+                input("Enter the supervisor's last name: "),
+                input("Enter the supervisor's gender: "),
+                int(input("Enter the supervisor's age: "))
+            )
+            break
+        elif check == "n":
+            supervisor = build_person("Alexander", "Kometer", "male", 27)
+            break
+        else: 
+            print("Please enter a valid input!")
+        
+
     
-    # Erstelle einen Betreuer
-    supervisor_info = my_functions.build_person("Georg", "sagmeister", "male", 20)
-
-    # Erstelle einen Probanden
-    print("Bitte Daten der Versuchsperson eingeben:")
-    first_name = input("Vorname:")
-    last_name = input("Nachname:")
-    sex = input("Geschlecht (male or female):")
-    age = int(input("Alter:"))
-
-    subject_info = my_functions.build_person(first_name, last_name, sex, age)
-
-    # Erstelle ein Experiment
-    experiment_info = my_functions.build_experiment(name,datum, supervisor_info, subject_info)
-    print(experiment_info)
-
-    # Drucke das Experimenten-Dictionary
-    print("Experiment Details:")
-    for key, value in experiment_info.items():
-        print(f"{key}: {value}")
+    print()
+    print("Please enter the following information about the experiment subject!")
+    print()
+    subject = build_person(
+        input("Enter the subject's first name: "),
+        input("Enter the subject's last name: "),
+        input("Enter the subjects gender: "),
+        int(input("Enter the subjects age: "))
+        )
+        
+    
+    experiment = build_experiment(
+        experiment_name,
+        experiment_date,
+        supervisor,
+        subject
+    )
+    print(experiment)
 
 
-    # Define student_details dictionary
-    student_details ={ 
-        "Experimentenname" : name, 
-        "Experimentendatum": datum, 
-        "Diagnostiker": supervisor_info,
-        "Versuchsperson": subject_info
-        } 
-
-    # Convert and write JSON object to file
-    with open("sample.json", "w") as outfile: 
-        json.dump(student_details, outfile)
+with open("experiment.json", "w") as outfile:
+        json.dump(experiment, outfile, indent=4)
+        print("Experiment saved to experiment.json")
