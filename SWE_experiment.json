@@ -2,7 +2,14 @@
     "experiment_name": "SWE",
     "experiment_date": "28-04-2024",
     "supervisor": {
-        "first_name": "Tobias",
-        "last_name": "Wannenmacher"
+        "first_name": "Alexander ",
+        "last_name": "Kometer"
+    },
+    "subject": {
+        "first_name": "Georg",
+        "last_name": "Sagmeister",
+        "sex": "male",
+        "_Subject__birthdate": "2003-06-21",
+        "max_hr": 205.0
     }
 }

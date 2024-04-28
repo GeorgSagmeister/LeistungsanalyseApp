@@ -38,11 +38,12 @@ class Supervisor(Person):
 
 class Experiment():
     
-    def __init__(self,experiment_name,experiment_date,supervisor):
+    def __init__(self,experiment_name,experiment_date,supervisor,subject):
 
         self.experiment_name = experiment_name
         self.experiment_date = experiment_date
         self.supervisor = supervisor.__dict__
+        self.subject = subject.__dict__
     
     def save(self):
         with open(f"{self.experiment_name}_experiment.json","w") as outfile:
