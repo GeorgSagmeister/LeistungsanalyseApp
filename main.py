@@ -30,7 +30,7 @@ supervisor_last = input("Enter the supervisor's last name: ")
 
 subject = Subject(first_name, last_name, sex, birthdate)
 supervisor = Supervisor(supervisor_first, supervisor_last)
-experiment = Experiment(experiment_name, experiment_date, supervisor,subject)
+experiment = Experiment(experiment_name, experiment_date, supervisor, subject)
         
 subject.save()
 experiment.save()

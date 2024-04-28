@@ -14,7 +14,7 @@ class Person():
 
 class Subject(Person):
     def __init__(self, fist_name, last_name, sex, birthdate):
-        super().__init__(fist_name,last_name)
+        super().__init__(fist_name, last_name)
         self.sex = sex
         self.__birthdate = birthdate
         self.max_hr = self.estimate_max_hr()
@@ -33,12 +33,12 @@ class Subject(Person):
             return max_hr_bpm
 
 class Supervisor(Person):
-    def __init__(self,fist_name,last_name):
-        super().__init__(fist_name,last_name)
+    def __init__(self,fist_name, last_name):
+        super().__init__(fist_name, last_name)
 
 class Experiment():
     
-    def __init__(self,experiment_name,experiment_date,supervisor,subject):
+    def __init__(self, experiment_name, experiment_date, supervisor, subject):
 
         self.experiment_name = experiment_name
         self.experiment_date = experiment_date
@@ -49,6 +49,7 @@ class Experiment():
         with open(f"{self.experiment_name}_experiment.json","w") as outfile:
             json.dump(self.__dict__, outfile, indent=4)
             print("Experiment saved to"f"{self.experiment_name}.json")
+
 
                  
 
