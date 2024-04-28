@@ -11,4 +11,4 @@ Dieses Repository enthält eine Anwendung zur Analyse der Leistungsfähigkeit vo
 
     4. Anweisungen befolgen: Folgen Sie den Anweisungen, um neue Versuchspersonen und Experimente anzulegen.
 
-    5. Daten speichern: Die erstellten Experimente werden automatisch in einer Datei gespeichert.
+    5. Daten speichern: Die erstellten Experimente und Versuchspersonen werden automatisch in einer Datei gespeichert.

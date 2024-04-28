@@ -1,6 +1,6 @@
-import json
+
 from datetime import datetime
-from my_classes import Person, Experiment 
+from my_classes import Subject, Experiment, Supervisor
 
 print()
 print("Welcome to the experiment builder!")
@@ -14,22 +14,23 @@ elif check == "n":
 else:
     print("Please enter a valid input!")
 
-#subject:
+
+#Subject
 print("Enter the following information about the subject")
 print()
 first_name = input("Enter the first name: ")
 last_name = input("Enter the last name: ")
-age = int(input("Enter the age: "))
+birthdate = input("Enter the birthdate (%Y-%m-%d): ")
 sex = input("Sex of the subject (male/female): ")
 
 #Expermient
 experiment_name = input("Enter the experiment name: ")
-supervisor = input("Enter the supervisor's name: "),
+supervisor_first = input("Enter the supervisor's first name: ")
+supervisor_last = input("Enter the supervisor's last name: ")
 
-subject = Person(first_name,last_name,sex,age)
-experiment = Experiment(experiment_name,experiment_date,supervisor)
+subject = Subject(first_name, last_name, sex, birthdate)
+supervisor = Supervisor(supervisor_first, supervisor_last)
+experiment = Experiment(experiment_name, experiment_date, supervisor)
         
 subject.save()
 experiment.save()
-
-
