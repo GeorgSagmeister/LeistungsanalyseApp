@@ -2,6 +2,7 @@
 from datetime import datetime
 from my_classes import Subject, Experiment, Supervisor
 
+
 print()
 print("Welcome to the experiment builder!")
 print("Please enter the following information about the experiment")
@@ -34,3 +35,6 @@ experiment = Experiment(experiment_name, experiment_date, supervisor, subject)
         
 subject.save()
 experiment.save()
+
+subject.put()
+subject.update_email()
