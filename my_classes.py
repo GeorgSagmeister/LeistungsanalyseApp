@@ -1,4 +1,5 @@
-import json, requests
+import json
+import requests
 from datetime import datetime
 
 class Person():
@@ -46,7 +47,7 @@ class Subject(Person):
             return max_hr_bpm
 
     def update_email(self):
-        self.put()
+
         email = str(input("Bitte email eingeben:"))
         url = "http://127.0.0.1:5000/person/Testname2"
         data = {
